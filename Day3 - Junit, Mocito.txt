@@ -1,0 +1,181 @@
+Types of unit testing
+---------------------
+There are two ways to perform unit testing:
+ 
+1) Manual testing  ---> Exploratory Testing, Ad-hoc Testing, Usability Testing
+2) Automated testing ---> Selenium, QTP, Junit, TestNG, Postman, Jira, JMeter
+ 
+ 
+1) Manual Testing
+-----------------
+If you execute the test cases manually without any tool support, it is known as manual testing.
+It is time consuming and less reliable.
+ 
+2) Automated Testing
+--------------------
+If you execute the test cases by tool support, it is known as automated testing.
+It is fast and more reliable.
+ 
+1.) Testing based on Scope ---> Unit, Integration, System, Acceptance
+2.) Testing based on Methodology ---> Black-Box, White-Box and Gray-Box
+3.) Testing based on Execution:
+    ---------------------------
+a.) Functional Testing ---> Smoke, Sanity, Regression
+b.) Non-Functional Testing ---> Performance, Load, Stress, Security
+ 
+4.) Test Levels ---> Alpha, Beta, User Acceptance Testing (UAT)
+
+
+
+---------------------------------------------
+				JUnit 4
+---------------------------------------------
+
+
+Annotations for Junit testing
+-----------------------------
+The Junit 4.x framework is annotation based.
+
+@Test annotation specifies that method is the test method.
+
+@Test(timeout=1000) annotation specifies that method will be failed if it takes longer than 1000 milliseconds (1 second).
+
+@BeforeClass annotation specifies that method will be invoked only once, before starting all the tests.
+
+@Before annotation specifies that method will be invoked before each test.
+
+@After annotation specifies that method will be invoked after each test.
+
+@AfterClass annotation specifies that method will be invoked only once, after finishing all the tests.
+
+
+
+
+Assert class
+------------
+The org.junit.Assert class provides methods to assert the program logic.
+
+Methods of Assert class
+-----------------------
+The common methods of Assert class are as follows:
+
+void assertEquals(boolean expected,boolean actual): checks that two primitives/objects are equal. It is overloaded.
+void assertTrue(boolean condition): checks that a condition is true.
+void assertFalse(boolean condition): checks that a condition is false.
+void assertNull(Object obj): checks that object is null.
+void assertNotNull(Object obj): checks that object is not null.
+
+
+
+---------------------------------------------
+				JUnit 5
+---------------------------------------------
+JUnit 5 talks about how it adapted java 8 style of coding and several other features as well.
+Learn how it’s different from JUnit 3 or 4.
+
+JUnit 5 is most widely used testing framework for java applications.
+For very long time, JUnit has been doing its job perfectly. 
+In between, JDK 8 brought very exciting features in java and
+most notably "lambda expressions". 
+JUnit 5 aims to adapt java 8 style of coding and several other features as well, 
+that’s why java 8 is required to create and execute tests in JUnit 5 
+(though it is possible to execute tests written with JUnit 3 or JUnit 4 for backward compatibility).
+
+
+As compared to JUnit 4, JUnit 5 is composed of several different modules from three different sub-projects:
+
+JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+
+JUnit Platform
+--------------
+To be able to launch junit tests, IDEs, build tools or plugins need to include
+and extend platform APIs. 
+It defines the TestEngine API for developing new testing frameworks that runs on the platform.
+It also provides a Console Launcher to launch the platform 
+from the command line and build plugins for Gradle and Maven.
+
+JUnit Jupiter
+-------------
+It includes new programming and extension models for writing tests. 
+It has all new junit annotations and TestEngine implementation to run tests
+written with these annotations.
+
+JUnit Vintage
+-------------
+It primary purpose is to support running JUnit 3 and JUnit 4 written tests on the JUnit 5 platform. 
+It’s there are backward compatibility.
+
+
+Installation
+------------
+You can use JUnit 5 in your maven or gradle project by including minimum two dependencies (POM.xml)
+i.e. Jupiter Engine Dependency and Platform Runner Dependency.
+
+
+This module includes new programming and extension models for writing tests in JUnit 5.
+New annotations in comparison to JUnit 4 are:
+@TestFactory – denotes a method that is a test factory for dynamic tests
+@DisplayName – defines custom display name for a test class or a test method
+@Nested – denotes that the annotated class is a nested, non-static test class
+@Tag – declares tags for filtering tests
+@ExtendWith – it is used to register custom extensions
+@BeforeEach – denotes that the annotated method will be executed before each test method (previously @Before)
+@AfterEach – denotes that the annotated method will be executed after each test method (previously @After)
+@BeforeAll – denotes that the annotated method will be executed before all test methods in the current class (previously @BeforeClass)
+@AfterAll – denotes that the annotated method will be executed after all test methods in the current class (previously @AfterClass)
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS) //By default instance of TestClass will be created for every method, using this annotation we can set lifecycle to class level i.e. object will be created only once.
+@EnabledOnOs(OS.LINUX) - denotes that the method will be executed only when the test is executed on specified OS 
+@EnabledForJreRange(min = JRE.JAVA_8, max = JRE.JAVA_11) - denotes that the method will be executed only when the test is executed using specified java version
+
+
+We can see that JUnit 5 has a big change in its architecture which related to platform launcher,
+integration with build tool, IDE, other Unit test frameworks, etc. 
+Moreover, JUnit 5 is more integrated with Java 8, especially with Lambdas and Stream concepts.
+
+
+---------------------------------------------
+				Mockito
+---------------------------------------------
+Mockito is a mocking framework, JAVA-based library that is used for effective unit testing of JAVA
+applications. 
+
+Mockito is used to mock interfaces so that a dummy functionality can be added to a mock interface
+that can be used in unit testing. This should help you learn how to create unit tests 
+with Mockito as well as how to use its APIs in a simple and an efficient way.
+
+
+What is Mocking?
+----------------
+Mocking is a way to test the functionality of a class in isolation. 
+Mocking does not require a database connection or properties file read or file server read 
+to test a functionality. Mock objects do the mocking of the real service. 
+A mock object returns a dummy data corresponding to some dummy input passed to it.
+
+Mockito
+-------
+Mockito facilitates creating mock objects seamlessly. 
+It uses Java Reflection in order to create mock objects for a given interface. 
+Mock objects are nothing but proxy for actual implementations.
+
+Example :
+---------
+Consider a case of Order Service which returns the price details of a stock.
+During development, the actual order service cannot be used to get real-time data. 
+So we need a dummy implementation of the business service. 
+Mockito can do the same very easily, as its name suggests.
+
+Benefits of Mockito
+-------------------
+1.) No Handwriting - No need to write mock objects on your own.
+
+2.) Refactoring Safe - Renaming interface method names or reordering parameters will not break the test
+code as Mocks are created at runtime.
+
+3.) Return value support - Supports return values.
+
+3.) Exception support - Supports exceptions.
+
+4.) Order check support - Supports check on order of method calls.
+
+5.) Annotation support - Supports creating mocks using annotation.

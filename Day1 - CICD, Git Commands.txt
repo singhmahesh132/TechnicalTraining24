@@ -1,0 +1,157 @@
+DevOps = Dev (Software Development) + Ops (IT Operations)
+
+Key Features of DevOps:
+-----------------------
+
+1.) Collaboration and Communication
+
+2.) Automation ---> automating repetitive tasks like testing and development (reduces the human error)
+
+3.) CICD (Continuous Integration and Continuous Delivery) 
+    CI ---> Jenkins, GitLab CI, Travis CI, circleCI
+    CD ---> Spinnaker, AWS CodeDeploy, Azure DevOps
+
+4.) Continuous Deployment (CD)
+    CD ---> Docker, Kubernetes, Jenkins X, ArgoCD
+
+5.) Infrastructure as Code (IaC)
+    IaC ---> Terraform, Ansible, AWS CloudFormation
+
+6.) Monitoring and Feedback
+
+7.) Security (DevSecOps)
+
+8.) Rapid Delivery 
+
+DevOps Workflow:
+----------------
+1.) Plan ---> JIRA
+2.) Code ---> Eclipse, IntelliJ, NetBeans
+3.) Build ---> Maven, Gradle, Ant
+4.) Test ---> Junit/Mockito, Selenium, SonarQube
+5.) Release ---> Jenkins
+6.) Deploy ---> Docker, Kubernetes
+7.) Monitor ---> Prometheus, Grafana, ELK stack, Splunk, Nagios
+8.) Operate ---> Ansible, Chef
+
+DevOps tools:
+-------------
+1.) Version Control ---> Git, GitHub, GitLab, Bitbucket
+2.) CI/CD Pipelines ---> Jenkins, GitLab CI, CircleCI, Travis CI, Azure Pipelines
+3.) Containerization ---> Docker, Kubernetes
+4.) Configuration Management ---> Ansible, Chef, Puppet, Terraform
+5.) Monitoring and Logging ---> Prometheus, Grafana, ELK stack (Elasticsearch, Logstash, Kibana), Splunk, Nagios
+6.) Cloud Platforms ---> AWS, Azure, GCP
+
+SDLC:
+-----
+
+Software Development Life Cycle
+
+1.) Requirement Gathering and Analysis
+
+2.) Design
+
+3.) Implementation
+
+4.) Testing
+
+5.) Deployment
+
+6.) Maintenance
+
+
+SDLC Models:
+------------
+
+1.) Waterfall Model ---> Linear and Sequential Model (Small Projects)
+
+2.) V-Model (Verification and Validation) ---> Testing (Ensures early detection of defects)
+
+3.) Iterative Model (Large Projects and allows partial implementation)
+
+4.) Agile Model (Sprints (or) Iterations) ---> 2-4 weeks
+
+5.) Spiral Model (Large Projects and High Risk Projects)
+
+6.) DevOps
+
+7.) Scrum (Fixed length iterations ) ---> Product Owner, Scrum Master, Development Team
+    Scrum Events ----> Daily Standups, Sprint Planning, Spring Reviews, Sprint Retrospective, Iterate
+
+
+SCM:
+----
+1.) Software Configuration Management Tools
+2.) Supply Chain Management Tools
+3.) Source Code Management Tools
+
+
+
+
+
+----------------------------------------------------
+					GIT
+----------------------------------------------------
+
+--------------Creating a new Repo-------------------
+git init
+git status
+git add Hello.java
+git status
+$ git commit -m "Hello.java created"
+		Author identity unknown
+		*** Please tell me who you are.
+
+		Run
+  		git config --global user.email "you@example.com"
+  		git config --global user.name "Your Name"
+		to set your account's default identity.
+		Omit --global to set the identity only in this repository.
+
+		fatal: unable to auto-detect email address (got 'Wissen@PF4W8GMC.(none)')
+
+git config --global user.email singh.mahesh132@gmail.com
+git config --global user.name singh.mahesh132
+git remote add origin https://github.com/singhmahesh132/technical-training.git
+git push -u origin master
+git log
+
+
+--------------Creating a new Branch and merging-------------------
+notepad master.java
+git add master.java
+git commit -m "Created master.java"
+git branch myNewBranch					(Creates the branc on local)
+git checkout myNewBranch
+notepad Branch.java
+git add Branch.java
+git commit -m "Created Branch.java"		(Push the branch to remote)
+git push -u origin myNewBranch
+git checkout master
+git merge myNewBranch
+git push -u origin master
+
+
+--------------Deleting the branch-------------------
+git branch -d myNewBranch				(Deletes branch from local)
+git push origin --delete myNewBranch		(Deletes branch from repositiory)
+
+
+--------------Creating a tag--------------------
+git tag v2.0
+git tag v2.1
+git tag v2.2
+$ git tag
+v2.0
+v2.1
+v2.2
+
+git log
+git tag --delete v2.0
+git push --tags
+git tag v1.2
+git push origin -d v1.2
+
+
+

@@ -1,0 +1,77 @@
+- Download and install maven
+- go to bin folder of maven (C:\apache-maven-3.9.9\bin)
+- open user environment variable and add below two
+	-> new 
+		Variable : MAVEN_HOME 
+		Value : C:\apache-maven-3.9.9\bin
+	-> edit Path 
+		new -> C:\apache-maven-3.9.9\bin
+
+- Open cmd -> got to folder : Desktop\STS
+- Create a maven project using below command
+	mvn archetype:generate
+
+- Change java Version in builth path and in POM.xml <maven.compiler.release> tag
+- Added Calculator.Java
+package com;
+ 
+public class Calculator
+{
+    public int add(int a, int b)
+    {
+        return a+b;
+    }
+    public int sub(int a, int b)
+    {
+        return a-b;
+    }
+    public int mul(int a, int b)
+    {
+        return a*b;
+    }
+    public int div(int a, int b)
+    {
+        return a/b;
+    }
+}
+
+- Added CalculatorTest.java
+package com;
+ 
+import static org.junit.Assert.*;
+ 
+import org.junit.Test;
+ 
+public class CalculatorTest
+{
+    @Test
+    public void testAdd()
+    {
+        Calculator c1 = new Calculator();
+        assertEquals(30, c1.add(10, 20));
+    }
+    @Test
+    public void testSub()
+    {
+        Calculator c1 = new Calculator();
+        assertEquals(-10, c1.sub(10, 20));
+    }
+}
+
+-Add below dependency in POM.xml under dependency
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.13.2</version>
+  		<scope>test</scope>
+  	</dependency>
+
+- force Update Dependency
+
+- go to cmd prompt
+- mvn clean		- deletes the old generated target folder
+- mvn compile		- compiles java and generates soruces folder
+- mvn test		- executes test and generates test folder
+- mvn package		- compiles, tests and generates the jar
+- mvn install		- combination of above all.
+- mvn deploy		- used to deploy.
